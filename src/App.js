@@ -1,7 +1,9 @@
-import logo from './logo.svg';
-import './App.css';
+import logo from "./logo.svg";
+import "./App.css";
 
 function App() {
+  // Base API Data
+  const _base_url = "https://api.deezer.com/";
   return (
     <div className="App">
       <header className="App-header">
