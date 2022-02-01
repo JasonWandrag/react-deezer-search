@@ -1,26 +1,34 @@
-import logo from "./logo.svg";
 import "./App.css";
+
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+
+import Home from "./views/Home";
+import Navbar from "./components/Navbar";
+import Artists from "./views/Artists";
+import Artist from "./views/Artist";
 
 function App() {
   // Base API Data
   const _base_url = "https://api.deezer.com/";
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div className="App">
+        <Navbar />
+        <main>
+          <Switch>
+            <Route exact path="/">
+              <Home />
+            </Route>
+            <Route exact path="/artists">
+              <Artists />
+            </Route>
+            <Route exact path="/artists/:id">
+              <Artist />
+            </Route>
+          </Switch>
+        </main>
+      </div>
+    </Router>
   );
 }
 
