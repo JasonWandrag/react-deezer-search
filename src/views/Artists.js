@@ -23,9 +23,7 @@ const Artists = () => {
       return;
     }
     setError("");
-    await fetch(
-      `https://cors-anywhere.herokuapp.com/http://api.deezer.com/search/artist?q=${name}`
-    )
+    await fetch(`http://localhost:8001/search/${name}`)
       .then((res) => res.json())
       .then((data) => {
         data.data.length

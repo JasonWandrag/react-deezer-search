@@ -12,9 +12,6 @@ import AOS from "aos";
 const Artist = () => {
   const { id } = useParams();
 
-  const base_url =
-    "https://cors-anywhere.herokuapp.com/https://api.deezer.com/artist/";
-
   const [artist, setArtist] = useState(null);
   const [topTracks, setTopTracks] = useState(null);
   const [albums, setAlbums] = useState(null);
@@ -24,20 +21,12 @@ const Artist = () => {
   // Chaining fetch calls to get information from appropriate endpoints
   useEffect(() => {
     window.scrollTo(0, 0);
-    fetch(`${base_url}${id}`)
+    fetch(`http://localhost:8001/artist/${id}`)
       .then((res) => res.json())
-      .then((artist) => {
-        setArtist(artist);
-        return fetch(`${base_url}${id}/top`);
-      })
-      .then((res) => res.json())
-      .then((topTracks) => {
-        setTopTracks(topTracks.data);
-        return fetch(`${base_url}${id}/albums`);
-      })
-      .then((res) => res.json())
-      .then((albums) => {
-        setAlbums(albums.data);
+      .then((data) => {
+        setArtist(data.artist);
+        setTopTracks(data.top_tracks.data);
+        setAlbums(data.albums.data);
       })
       .catch((e) =>
         setError(
