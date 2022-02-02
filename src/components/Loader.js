@@ -1,7 +1,4 @@
-import React from "react";
-
-const Loader = (props) => {
-  let text = props.text;
+const Loader = ({ text }) => {
   return (
     <div className="loader-container">
       <div className="loader neu-border-inset">

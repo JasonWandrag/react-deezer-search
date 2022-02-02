@@ -1,7 +1,4 @@
-import React from "react";
-
-const AlbumList = (props) => {
-  const albums = props.albums;
+const AlbumList = ({ albums }) => {
   return (
     <div>
       <h3>All Albums</h3>

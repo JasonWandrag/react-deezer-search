@@ -1,7 +1,4 @@
-import React from "react";
-
-const TopTracks = (props) => {
-  const topTracks = props.topTracks;
+const TopTracks = ({ topTracks }) => {
   return (
     <div className="artist-tracks neu-border-inset">
       <h3>Top 5 tracks</h3>

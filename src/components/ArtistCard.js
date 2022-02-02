@@ -1,8 +1,6 @@
-import React from "react";
 import { Link } from "react-router-dom";
 
-const ArtistCard = (props) => {
-  const artist = props.artist;
+const ArtistCard = ({ artist }) => {
   return (
     <Link className="artist-card neu-border" to={"/artists/" + artist.id}>
       <img src={artist.picture_medium} alt={artist.name} />

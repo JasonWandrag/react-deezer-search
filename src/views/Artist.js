@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { useState } from "react/cjs/react.development";
 
@@ -9,30 +9,28 @@ import Loader from "../components/Loader";
 const Artist = () => {
   const { id } = useParams();
 
+  const base_url =
+    "https://cors-anywhere.herokuapp.com/https://api.deezer.com/artist/";
+
   const [artist, setArtist] = useState(null);
   const [topTracks, setTopTracks] = useState(null);
   const [albums, setAlbums] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
 
+  // Chaining fetch calls to get information from appropriate endpoints
   useEffect(() => {
     window.scrollTo(0, 0);
-    fetch(
-      `https://cors-anywhere.herokuapp.com/https://api.deezer.com/artist/${id}`
-    )
+    fetch(`${base_url}${id}`)
       .then((res) => res.json())
       .then((artist) => {
         setArtist(artist);
-        return fetch(
-          `https://cors-anywhere.herokuapp.com/https://api.deezer.com/artist/${id}/top`
-        );
+        return fetch(`${base_url}${id}/top`);
       })
       .then((res) => res.json())
       .then((topTracks) => {
         setTopTracks(topTracks.data);
-        return fetch(
-          `https://cors-anywhere.herokuapp.com/https://api.deezer.com/artist/${id}/albums`
-        );
+        return fetch(`${base_url}${id}/albums`);
       })
       .then((res) => res.json())
       .then((albums) => {

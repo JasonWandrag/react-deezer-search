@@ -3,6 +3,7 @@ import ArtistList from "../components/ArtistList";
 import Loader from "../components/Loader";
 
 const Artists = () => {
+  // Default state
   const [name, setName] = useState("");
   const [artists, setArtists] = useState(null);
   const [loading, setLoading] = useState(false);
@@ -37,7 +38,7 @@ const Artists = () => {
 
   useEffect(() => {
     window.scrollTo(0, 0);
-  });
+  }, []);
   return (
     <div>
       <form className="search-form" onSubmit={searchArtist}>
@@ -56,7 +57,7 @@ const Artists = () => {
       </form>
       {loading && <Loader text="Searching for artists..." />}
       {error}
-      <div>{artists && <ArtistList artists={artists} />}</div>
+      {artists && <ArtistList artists={artists} />}
     </div>
   );
 };

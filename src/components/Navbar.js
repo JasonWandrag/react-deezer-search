@@ -1,5 +1,4 @@
-import React from "react";
-import { Link, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { useState } from "react/cjs/react.development";
 
 const Navbar = () => {
@@ -10,6 +9,7 @@ const Navbar = () => {
         <h1 className="navbar-brand">Melodic.ly</h1>
         <ul className={`navbar-links ${active ? "active" : ""}`}>
           <li className="navbar-link">
+            {/* Using NAVLINK to have access to Active Styling Classes */}
             <NavLink
               activeClassName="nav-item-active"
               to="/"

@@ -1,8 +1,11 @@
-import React from "react";
+import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import Landing from "../assets/landing-web.png";
 
 const Home = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <div className="landing">
       <div className="landing-text">
