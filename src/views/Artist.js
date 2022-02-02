@@ -5,6 +5,7 @@ import { useState } from "react/cjs/react.development";
 import TopTracks from "../components/TopTracks";
 import AlbumList from "../components/AlbumList";
 import Loader from "../components/Loader";
+import Error from "../components/Error";
 
 const Artist = () => {
   const { id } = useParams();
@@ -46,7 +47,7 @@ const Artist = () => {
   return (
     <div>
       {loading && <Loader text="Interviewing artist..." />}
-      {error}
+      {error && <Error msg={error} />}
       {artist && !loading && (
         <div className="artist-details">
           <div

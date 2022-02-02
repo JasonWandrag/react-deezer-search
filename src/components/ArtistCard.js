@@ -6,8 +6,10 @@ const ArtistCard = ({ artist }) => {
       <img src={artist.picture_medium} alt={artist.name} />
       <div className="artist-card-text">
         <h3>{artist.name}</h3>
-        <p>Fans: {artist.nb_fan}</p>
-        <p>Albums: {artist.nb_album}</p>
+        <div>
+          <p>Fans: {artist.nb_fan}</p>
+          <p>Albums: {artist.nb_album}</p>
+        </div>
       </div>
     </Link>
   );

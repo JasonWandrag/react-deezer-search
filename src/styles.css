@@ -13,7 +13,7 @@ body {
 }
 
 main {
-  min-height: 100vh;
+  min-height: 90vh;
   padding: 30px;
   padding-top: 130px;
   max-width: 900px;
@@ -259,6 +259,9 @@ h3 {
 .album-card-text,
 .artist-card-text {
   padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 /* Individual Artist Page */
@@ -375,4 +378,11 @@ footer {
   padding: 30px;
   text-align: center;
   box-shadow: 8px 8px 15px #e4e4e4, -8px -8px 15px #ffffff;
+}
+
+.error-msg {
+  border-radius: 50px;
+  text-align: center;
+  padding: 20px;
+  margin-bottom: 30px;
 }

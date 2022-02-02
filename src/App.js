@@ -5,6 +5,7 @@ import Navbar from "./components/Navbar";
 import Artists from "./views/Artists";
 import Artist from "./views/Artist";
 import Footer from "./components/Footer";
+import NotFound from "./views/NotFound";
 
 function App() {
   return (
@@ -21,6 +22,9 @@ function App() {
             </Route>
             <Route exact path="/artists/:id">
               <Artist />
+            </Route>
+            <Route path="*">
+              <NotFound />
             </Route>
           </Switch>
         </main>

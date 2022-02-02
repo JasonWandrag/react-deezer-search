@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import ArtistList from "../components/ArtistList";
 import Loader from "../components/Loader";
+import Error from "../components/Error";
 
 const Artists = () => {
   // Default state
@@ -26,7 +27,9 @@ const Artists = () => {
     )
       .then((res) => res.json())
       .then((data) => {
-        setArtists(data.data);
+        data.data.length
+          ? setArtists(data.data)
+          : setError("No artists found by that name");
       })
       .catch((e) =>
         setError(
@@ -56,7 +59,7 @@ const Artists = () => {
         </button>
       </form>
       {loading && <Loader text="Searching for artists..." />}
-      {error}
+      {error && <Error msg={error} />}
       {artists && <ArtistList artists={artists} />}
     </div>
   );
