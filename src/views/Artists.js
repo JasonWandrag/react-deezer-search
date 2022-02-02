@@ -52,6 +52,7 @@ const Artists = () => {
           className="neu-border-inset form-input"
           onChange={(e) => {
             setName(e.target.value);
+            setError("");
           }}
           data-aos="fade-right"
         />

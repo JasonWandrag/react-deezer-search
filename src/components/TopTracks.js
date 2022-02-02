@@ -4,7 +4,7 @@ const TopTracks = ({ topTracks }) => {
   const convertSecToMin = (sec) => {
     const min = Math.floor(sec / 60);
     const secLeft = sec - min * 60;
-    return `${min}:${secLeft}`;
+    return `${min}:${secLeft < 10 ? "0" + secLeft : secLeft}`;
   };
   useEffect(() => AOS.init());
   return (

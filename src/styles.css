@@ -385,4 +385,5 @@ footer {
   text-align: center;
   padding: 20px;
   margin-bottom: 30px;
+  transition: all 0.2s linear;
 }
