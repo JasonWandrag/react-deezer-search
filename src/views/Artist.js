@@ -7,6 +7,8 @@ import AlbumList from "../components/AlbumList";
 import Loader from "../components/Loader";
 import Error from "../components/Error";
 
+import AOS from "aos";
+
 const Artist = () => {
   const { id } = useParams();
 
@@ -43,7 +45,13 @@ const Artist = () => {
         )
       )
       .finally(() => setLoading(false));
+    AOS.init();
   }, []);
+
+  const fanTotal = (amt) => {
+    let fans = amt < 1000 ? `${amt} fans` : `${Math.floor(amt / 1000)}k fans`;
+    return fans;
+  };
   return (
     <div>
       {loading && <Loader text="Interviewing artist..." />}
@@ -55,10 +63,11 @@ const Artist = () => {
             style={{
               background: `linear-gradient(0deg, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.7)), url(${artist.picture_big})`,
             }}
+            data-aos="fade-right"
           >
             <div className="artist-name">
               <h2>{artist.name}</h2>
-              <p>Fans: {artist.nb_fan}</p>
+              <p>{fanTotal(artist.nb_fan)}</p>
             </div>
             <img src={artist.picture_medium} alt={artist.name} />
           </div>

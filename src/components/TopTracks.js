@@ -1,11 +1,19 @@
+import AOS from "aos";
+import { useEffect } from "react";
 const TopTracks = ({ topTracks }) => {
+  const convertSecToMin = (sec) => {
+    const min = Math.floor(sec / 60);
+    const secLeft = sec - min * 60;
+    return `${min}:${secLeft}`;
+  };
+  useEffect(() => AOS.init());
   return (
-    <div className="artist-tracks neu-border-inset">
+    <div className="artist-tracks neu-border-inset" data-aos="fade-left">
       <h3>Top 5 tracks</h3>
       <ol className="tracks">
         {topTracks.map((track) => (
           <li className="track" key={track.id}>
-            {track.title} <span>{track.duration}</span>
+            {track.title} <span>{convertSecToMin(track.duration)}</span>
           </li>
         ))}
       </ol>

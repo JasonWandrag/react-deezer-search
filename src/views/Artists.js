@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import ArtistList from "../components/ArtistList";
 import Loader from "../components/Loader";
 import Error from "../components/Error";
+import AOS from "aos";
 
 const Artists = () => {
   // Default state
@@ -41,6 +42,7 @@ const Artists = () => {
 
   useEffect(() => {
     window.scrollTo(0, 0);
+    AOS.init();
   }, []);
   return (
     <div>
@@ -53,8 +55,14 @@ const Artists = () => {
           onChange={(e) => {
             setName(e.target.value);
           }}
+          data-aos="fade-right"
         />
-        <button className="neu-border btn" type="submit" disabled={loading}>
+        <button
+          className="neu-border btn"
+          type="submit"
+          disabled={loading}
+          data-aos="fade-left"
+        >
           Search
         </button>
       </form>
