@@ -11,9 +11,10 @@ const TopTracks = ({ topTracks }) => {
     <div className="artist-tracks neu-border-inset" data-aos="fade-left">
       <h3>Top 5 tracks</h3>
       <ol className="tracks">
-        {topTracks.map((track) => (
+        {topTracks.map((track, idx) => (
           <li className="track" key={track.id}>
-            {track.title} <span>{convertSecToMin(track.duration)}</span>
+            {idx + 1}. {track.title}{" "}
+            <span>{convertSecToMin(track.duration)}</span>
           </li>
         ))}
       </ol>

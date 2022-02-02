@@ -46,7 +46,7 @@ const Artist = () => {
       )
       .finally(() => setLoading(false));
     AOS.init();
-  }, []);
+  }, [id]);
 
   const fanTotal = (amt) => {
     let fans = amt < 1000 ? `${amt} fans` : `${Math.floor(amt / 1000)}k fans`;
