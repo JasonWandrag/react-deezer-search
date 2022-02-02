@@ -6,10 +6,9 @@ import Home from "./views/Home";
 import Navbar from "./components/Navbar";
 import Artists from "./views/Artists";
 import Artist from "./views/Artist";
+import Footer from "./components/Footer";
 
 function App() {
-  // Base API Data
-  const _base_url = "https://api.deezer.com/";
   return (
     <Router>
       <div className="App">
@@ -27,6 +26,7 @@ function App() {
             </Route>
           </Switch>
         </main>
+        <Footer />
       </div>
     </Router>
   );

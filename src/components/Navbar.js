@@ -1,23 +1,32 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { useState } from "react/cjs/react.development";
 
 const Navbar = () => {
   const [active, setActive] = useState(false);
   return (
-    <nav className={`navbar ${active ? "active" : ""}`}>
+    <nav className="navbar">
       <div className="nav">
-        <h1 className="navbar-brand">Music Finder</h1>
-        <ul className="navbar-links">
+        <h1 className="navbar-brand">Melodic.ly</h1>
+        <ul className={`navbar-links ${active ? "active" : ""}`}>
           <li className="navbar-link">
-            <Link to="/" onClick={() => setActive(false)}>
+            <NavLink
+              activeClassName="nav-item-active"
+              to="/"
+              exact
+              onClick={() => setActive(false)}
+            >
               Home
-            </Link>
+            </NavLink>
           </li>
           <li className="navbar-link">
-            <Link to="/artists" onClick={() => setActive(false)}>
+            <NavLink
+              activeClassName="nav-item-active"
+              to="/artists"
+              onClick={() => setActive(false)}
+            >
               Search
-            </Link>
+            </NavLink>
           </li>
         </ul>
         <button

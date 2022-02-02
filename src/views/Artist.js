@@ -13,8 +13,10 @@ const Artist = () => {
   const [topTracks, setTopTracks] = useState(null);
   const [albums, setAlbums] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState("");
 
   useEffect(() => {
+    window.scrollTo(0, 0);
     fetch(
       `https://cors-anywhere.herokuapp.com/https://api.deezer.com/artist/${id}`
     )
@@ -27,7 +29,6 @@ const Artist = () => {
       })
       .then((res) => res.json())
       .then((topTracks) => {
-        console.table(topTracks.data);
         setTopTracks(topTracks.data);
         return fetch(
           `https://cors-anywhere.herokuapp.com/https://api.deezer.com/artist/${id}/albums`
@@ -35,16 +36,19 @@ const Artist = () => {
       })
       .then((res) => res.json())
       .then((albums) => {
-        console.log(albums.data);
         setAlbums(albums.data);
       })
-      .catch((e) => console.log(e))
+      .catch((e) =>
+        setError(
+          "Service unavailable due to too many requests. Please try again in 5 minutes"
+        )
+      )
       .finally(() => setLoading(false));
   }, []);
   return (
     <div>
       {loading && <Loader text="Interviewing artist..." />}
-
+      {error}
       {artist && !loading && (
         <div className="artist-details">
           <div
