@@ -1,0 +1,330 @@
+/* Global Styles */
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;500;600;700;800;900&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Nunito", sans-serif;
+}
+
+body {
+  background: #f5f5f5;
+}
+
+main {
+  min-height: 100vh;
+  padding: 30px;
+  padding-top: 130px;
+  max-width: 900px;
+  margin-inline: auto;
+}
+
+@media screen and (max-width: 500px) {
+  main {
+    padding-top: 30px;
+  }
+}
+
+h3 {
+  margin-bottom: 30px;
+}
+
+.neu-border {
+  border-radius: 30px;
+  background: #f5f5f5;
+  box-shadow: 8px 8px 15px #e4e4e4, -8px -8px 15px #ffffff;
+}
+.neu-border-inset {
+  border-radius: 30px;
+  background: #f5f5f5;
+  box-shadow: inset 8px 8px 15px #e4e4e4, inset -8px -8px 15px #ffffff;
+}
+
+.btn {
+  text-decoration: none;
+  color: #2c3e50;
+  padding: 20px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+/* Navigation Styles */
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: #f5f5f5;
+  box-shadow: 8px 8px 15px #e4e4e4, -8px -8px 15px #ffffff;
+  z-index: 100;
+}
+
+.nav {
+  padding: 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 900px;
+  margin-inline: auto;
+}
+
+.navbar-links {
+  list-style: none;
+  display: flex;
+}
+
+.navbar-link a {
+  font-weight: bold;
+  color: #2c3e50;
+  padding: 20px;
+  text-decoration: none;
+  transition: color 0.3s linear;
+}
+
+.navbar-link a:hover {
+  color: #4d657e;
+}
+
+.navbar-btn {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: #f5f5f5;
+  box-shadow: 8px 8px 15px #e4e4e4, -8px -8px 15px #ffffff;
+  padding: 20px;
+  border-radius: 50%;
+  border: none;
+  outline: none;
+  display: none;
+}
+
+@media screen and (max-width: 500px) {
+  .navbar {
+    height: 100%;
+    left: -100vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: left 0.1s linear;
+  }
+  .nav {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 80px;
+  }
+  .navbar.active {
+    left: 0;
+  }
+  .navbar-links {
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .navbar-link a {
+    padding: 30px;
+  }
+  .navbar-btn {
+    display: block;
+  }
+}
+
+/* Landing */
+
+.landing {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 80vh;
+}
+
+/* .landing-text,
+.landing-img {
+  width: 50%;
+} */
+
+.landing-text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 30px;
+}
+
+.landing-img {
+  max-height: 50vh;
+  object-fit: contain;
+}
+
+.landing-text h1 {
+  text-transform: uppercase;
+  font-size: 4rem;
+  line-height: 3.5rem;
+}
+
+@media screen and (max-width: 500px) {
+  .landing {
+    flex-direction: column;
+  }
+  .landing-img {
+    display: none;
+  }
+  .landing-text {
+    width: 100%;
+  }
+  .landing-text h1 {
+    font-size: 2rem;
+  }
+}
+
+/* Search Form */
+.search-form {
+  display: flex;
+  gap: 30px;
+  margin-bottom: 30px;
+  /* position: sticky;
+  top: 100px; */
+}
+.form-input {
+  border: none;
+  outline: none;
+  padding: 20px;
+  width: 100%;
+}
+
+/* Artist List */
+.artists-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+}
+
+.artist-card {
+  /* width: 30%; */
+  flex-basis: 30%;
+  overflow: hidden;
+  text-decoration: none;
+  color: #2c3e50;
+  min-width: 250px;
+  flex-grow: 1;
+}
+
+.artist-card img {
+  width: 100%;
+  object-fit: cover;
+}
+
+.artist-card-text {
+  padding: 20px;
+}
+
+/* Individual Artist Page */
+.artist-details {
+  display: flex;
+  margin-bottom: 30px;
+}
+
+.artist-information {
+  width: 70%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px;
+  /* flex-direction: column;
+  justify-content: center; */
+}
+
+/* .artist-information img {
+  max-width: 100%;
+  width: 100%;
+} */
+
+.artist-tracks {
+  padding: 30px;
+  display: flex;
+  margin-left: 30px;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.track {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #2c3e5055;
+  margin-bottom: 10px;
+}
+
+@media screen and (max-width: 500px) {
+  .artist-details {
+    flex-direction: column;
+  }
+
+  .artist-information,
+  .artist-tracks {
+    width: 100%;
+  }
+
+  .artist-information {
+    min-height: 50vh;
+  }
+
+  .artist-information img {
+    display: none;
+  }
+
+  .artist-tracks {
+    margin-left: 0;
+    margin-top: 30px;
+  }
+}
+
+/* loader styles */
+
+.loader-container {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.loader,
+.loader-inner,
+.loader-circle {
+  padding: 5px;
+  display: grid;
+  place-items: center;
+}
+
+.loader {
+  width: fit-content;
+  margin-inline: auto;
+}
+
+.loader-inner {
+  width: 40px;
+  height: 40px;
+}
+
+.loader-circle {
+  border: 3px solid #f5f5f5;
+  border-top: 3px solid#2c3e50;
+  border-radius: 30px;
+  animation: spin 0.5s linear forwards infinite;
+}
+
+.loader-text {
+  text-align: center;
+  margin-top: 30px;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
