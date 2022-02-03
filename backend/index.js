@@ -1,6 +1,7 @@
 const express = require("express");
 const axios = require("axios");
 const cors = require("cors");
+const errorLogger = require("./errorLogger");
 
 const app = express();
 
@@ -24,7 +25,10 @@ app.get("/search/:name", async (req, res) => {
     .then((data) => {
       res.send(data.data);
     })
-    .catch((err) => console.log(err));
+    .catch((err) => {
+      console.log(err);
+      errorLogger(err);
+    });
 });
 
 // Get USER data from multiple endpoints
@@ -62,7 +66,10 @@ app.get("/artist/:id", async (req, res) => {
       response.albums = data.data;
       res.send(response);
     })
-    .catch((err) => console.log(err));
+    .catch((err) => {
+      console.log(err);
+      errorLogger(err);
+    });
 });
 
 const PORT = process.env.PORT || 8001;
