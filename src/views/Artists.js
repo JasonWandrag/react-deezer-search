@@ -23,6 +23,7 @@ const Artists = () => {
       return;
     }
     setError("");
+    setArtists(null);
     await fetch(`http://localhost:8001/search/${name}`)
       .then((res) => res.json())
       .then((data) => {
