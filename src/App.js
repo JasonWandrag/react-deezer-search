@@ -6,6 +6,7 @@ import Artists from "./views/Artists";
 import Artist from "./views/Artist";
 import Footer from "./components/Footer";
 import NotFound from "./views/NotFound";
+import Track from "./views/Track";
 
 function App() {
   return (
@@ -22,6 +23,9 @@ function App() {
             </Route>
             <Route exact path="/artists/:id">
               <Artist />
+            </Route>
+            <Route exact path="/tracks/:id">
+              <Track />
             </Route>
             <Route path="*">
               <NotFound />

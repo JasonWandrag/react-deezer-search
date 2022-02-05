@@ -72,6 +72,55 @@ app.get("/artist/:id", async (req, res) => {
     });
 });
 
+// get track data
+app.get("/track/:id", (req, res) => {
+  const response = {};
+  let albumId = null;
+  axios
+    .get(
+      `https://cors-anywhere.herokuapp.com/https://api.deezer.com/track/${req.params.id}`,
+      {
+        mode: "cors",
+        headers: {
+          "x-requested-with": "XMLHttpRequest",
+        },
+      }
+    )
+    .then((data) => {
+      response.track = data.data;
+      albumId = data.data.album.id;
+      return axios.get(
+        `https://api.deezer.com/artist/${data.data.artist.id}/top?limit=5`,
+        {
+          mode: "cors",
+          headers: {
+            "x-requested-with": "XMLHttpRequest",
+          },
+        }
+      );
+    })
+    .then((data) => {
+      response.topTracks = data.data;
+      return axios.get(
+        `https://cors-anywhere.herokuapp.com/https://api.deezer.com/album/${albumId}/tracks`,
+        {
+          mode: "cors",
+          headers: {
+            "x-requested-with": "XMLHttpRequest",
+          },
+        }
+      );
+    })
+    .then((data) => {
+      response.albumTracklist = data.data;
+      res.send(response);
+    })
+    .catch((err) => {
+      console.log(err);
+      errorLogger(err);
+    });
+});
+
 const PORT = process.env.PORT || 8001;
 
 app.listen(PORT, () => console.log(`Server started on port ${PORT}`));

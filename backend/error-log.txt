@@ -3,3 +3,71 @@
       Error: Request failed with status code 403
       _______________________________________
       
+      Error on 2022/02/05:
+      Error: Request failed with status code 403
+      _______________________________________
+      
+      Error on 2022/02/05:
+      TypeError: Converting circular structure to JSON
+    --> starting at object with constructor 'ClientRequest'
+    |     property 'socket' -> object with constructor 'TLSSocket'
+    --- property '_httpMessage' closes the circle
+      _______________________________________
+      
+      Error on 2022/02/05:
+      TypeError: Converting circular structure to JSON
+    --> starting at object with constructor 'ClientRequest'
+    |     property 'socket' -> object with constructor 'TLSSocket'
+    --- property '_httpMessage' closes the circle
+      _______________________________________
+      
+      Error on 2022/02/05:
+      TypeError: Converting circular structure to JSON
+    --> starting at object with constructor 'ClientRequest'
+    |     property 'socket' -> object with constructor 'TLSSocket'
+    --- property '_httpMessage' closes the circle
+      _______________________________________
+      
+      Error on 2022/02/05:
+      TypeError: Converting circular structure to JSON
+    --> starting at object with constructor 'ClientRequest'
+    |     property 'socket' -> object with constructor 'TLSSocket'
+    --- property '_httpMessage' closes the circle
+      _______________________________________
+      
+      Error on 2022/02/05:
+      TypeError: Converting circular structure to JSON
+    --> starting at object with constructor 'ClientRequest'
+    |     property 'socket' -> object with constructor 'TLSSocket'
+    --- property '_httpMessage' closes the circle
+      _______________________________________
+      
+      Error on 2022/02/05:
+      TypeError: Converting circular structure to JSON
+    --> starting at object with constructor 'ClientRequest'
+    |     property 'socket' -> object with constructor 'TLSSocket'
+    --- property '_httpMessage' closes the circle
+      _______________________________________
+      
+      Error on 2022/02/05:
+      TypeError: Converting circular structure to JSON
+    --> starting at object with constructor 'ClientRequest'
+    |     property 'socket' -> object with constructor 'TLSSocket'
+    --- property '_httpMessage' closes the circle
+      _______________________________________
+      
+      Error on 2022/02/05:
+      TypeError: Converting circular structure to JSON
+    --> starting at object with constructor 'ClientRequest'
+    |     property 'socket' -> object with constructor 'TLSSocket'
+    --- property '_httpMessage' closes the circle
+      _______________________________________
+      
+      Error on 2022/02/05:
+      Error: Request failed with status code 403
+      _______________________________________
+      
+      Error on 2022/02/05:
+      Error: Request failed with status code 403
+      _______________________________________
+      

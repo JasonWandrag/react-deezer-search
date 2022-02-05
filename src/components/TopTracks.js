@@ -1,5 +1,6 @@
 import AOS from "aos";
 import { useEffect } from "react";
+import { Link } from "react-router-dom";
 const TopTracks = ({ topTracks }) => {
   const convertSecToMin = (sec) => {
     const min = Math.floor(sec / 60);
@@ -12,10 +13,12 @@ const TopTracks = ({ topTracks }) => {
       <h3>Top 5 tracks</h3>
       <ol className="tracks">
         {topTracks.map((track, idx) => (
-          <li className="track" key={track.id}>
-            {idx + 1}. {track.title}{" "}
-            <span>{convertSecToMin(track.duration)}</span>
-          </li>
+          <Link to={"/tracks/" + track.id} key={track.id}>
+            <li className="track">
+              {idx + 1}. {track.title}{" "}
+              <span>{convertSecToMin(track.duration)}</span>
+            </li>
+          </Link>
         ))}
       </ol>
     </div>
